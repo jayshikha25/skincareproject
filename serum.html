@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cetastyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/fontawesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+ 
+</head>
+<body>
+  <header>
+    <nav> <div class="navbar">
+      <div class="logo">JASSI</div>
+      </div>
+      <div class="navbar">
+      <div class="nav-links">
+        <div class="nav-item">
+          <a  href="index.html">HOME </a>
+  
+          </div>
+      </div>
+      </div>
+      
+      <div class="navbar">
+     
+      <div class="nav-links">
+        <div class="nav-item" id="productsMenu">
+          <a href="javascript:void(0)">PRODUCTS </a>
+          <div class="mega-menu">
+            <div class="column">
+              <h4>Categories</h4>
+              <br>
+              <a href="cleanser.html">Cleansers</a>
+              <a href="serum.html">Serum</a>
+              <a href="moisturizer.html">Moisturiser</a>
+              <a href="bodywash.html">Body Wash</a>
+              <a href="sunscreen.html">Sunscreens</a>
+              <a href="facemask.html">Face Mask</a>
+            </div>
+        
+            <div class="column">
+              <h4>Skin Type</h4><br>
+              <a href="Dryskin.html">Dry Skin</a>
+              <a href="oilyskin.html">Oily Skin</a>
+              <a href="normalskin.html">Normal Skin</a>
+            </div>
+        
+           
+          </div>
+          </div>
+        </div> 
+      </div>
+        
+        
+    <div class="navbar">
+    <div class="nav-item" id="digitalMenu">
+    <a href="javascript:void(0)">Digital AI SKIN ANALYSIS   </a>
+    <div class="digital-dropdown">
+      
+   
+      <a href="quiz.html">
+  
+    <div class="card" id="productFinderCard">
+      
+      
+      <img src="AISKINANALYSIS.png" alt="Product Finder">
+      <div class="card-body">
+        <div class="card-title">Product Finder <span class="arrow">→</span></div>
+        <div class="card-desc">
+          Answer a few quick questions to find personalised solutions crafted just for you, either for your face or body skincare.
+        </div>
+  
+    </div>
+    </div>
+    </a>
+  <div id="startAnalysisBtn">
+    <div class="card" id="aiSkinCard  " >
+      <img src="AISKINANALYSIS.png" alt="AI Skin Analysis">
+      <div class="card-body">
+        <div class="card-title">AI Skin Analysis <span  class="arrow">→</span></div>
+        <div class="card-desc">
+          Take a selfie using our AI skin analysis tool to receive a personalized skin analysis report and recommended skincare routine.
+        </div>
+  </div>
+  
+        </div>
+        
+  
+        <div id="cameraSection" style="display: none;">
+          
+          <video id="video" autoplay></video><br>
+          <button id="captureBtn">📸 Capture Selfie</button><br>
+          <img id="selfie" alt="Your Selfie" style="display:none;" />
+        </div>
+      
+        <div id="report" style="display: none;">
+          <h4>Your Skin Report:</h4>
+          <div id="results">Click to analyze...</div>
+        </div>
+      
+  
+      </div>
+      </div>
+        </div>
+      </div>
+  
+  
+     
+      <!-- <div class="card">
+        <img src="AISKINANALYSIS.png" alt="Product Finder">
+        <div class="card-body">
+          <div class="card-title">Product Finder <span class="arrow">→</span></div>
+          <div class="card-desc">
+            Answer a few quick questions to find personalised solutions crafted just for you, either for your face or body skincare.
+          </div>
+        </div>
+      </div>
+          
+      <div class="card">
+        <img src="AISKINANALYSIS.png" alt="AI Skin Analysis">
+        <div class="card-body">
+          <div class="card-title">AI Skin Analysis <span class="arrow">→</span></div>
+          <div class="card-desc">
+            Take a selfie using our AI skin analysis tool to receive a personalized skin analysis report and recommended skincare routine.
+            
+  </div>
+  </div>
+  </div>
+      
+     
+      </div> -->
+  
+      <!-- __________________________________________________ -->
+  
+      <div class="navbar">
+        <div class="nav-item" id="dropdownMenu">
+         <a href="OurStory.html"> WHY CETAPHIL</a>
+  
+        </div>
+      </div>
+  
+    
+        <div class="nav-icons">
+          <input type="text" placeholder="Search..." class="search-bar">
+          <a href="#" onclick="openModal()"><i class="fas fa-user"></i></a></li>
+          <i class="fas fa-shopping-cart"></i>
+        </div>
+      </div> 
+    </nav> 
+  <!--modal -->
+  
+  <div id="authModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    
+    
+    <div class="logintime" id="loginForm">
+      <h2>Login</h2>
+  
+     
+      <div class="loginf">
+      <div class="loginbox">
+       <input type="email" placeholder="Enter your Email"></i>
+      <input type="password" placeholder="Password"></div>
+      <button>Login</button><br>
+      <p>Don't have an account? <a href="#" onclick="showSignup()">Sign up</a></p>
+    </div></div>
+    
+    <div  class="signupForm"id="signupForm"style="display:none;">
+      <h2>Sign Up</h2>
+      <div class="loginf">
+        <div class="loginbox">
+      
+      <input type="email" placeholder=" Enter your Email">
+      
+      
+      <input type="tel" placeholder= "Enter Your Number">
+      <input type="password" placeholder="Enter Password"></div>
+      <button>Sign Up</button>
+      <p>Already have an account? <a href="#" onclick="showLogin()">Login</a></p>
+    </div>
+  </div>
+  </div>
+  </div>
+  </nav>
+  </header>
+
+        <div class="header">
+          <img src="background_Image1.png" alt="Cetaphil Logo" >
+          
+        </div>
+
+        <div class="ceta-products">
+            <div class="ceta-card">
+              <img src="cleanser.png" alt="Product 1">
+              <div class="product-name">Gentle Skin Cleanser</div>
+              <button class="buy-btn">Buy Now</button>
+            </div>
+            <div class="ceta-card">
+              <img src="facepack.png" alt="Product 2">
+              <div class="product-name">Oily Skin Cleanser</div>
+              <button class="buy-btn">Buy Now</button>
+            </div>
+            <div class="ceta-card">
+              <img src="facepack.png" alt="Product 3">
+              <div class="product-name">Gentle Foaming Cleanser</div>
+              <button class="buy-btn">Buy Now</button>
+            </div>
+            <div class="ceta-card">
+              <img src="FACEWASH.jpg" alt="Product 4">
+              <div class="product-name">Oil Control Foam Wash</div>
+              <button class="buy-btn">Buy Now</button>
+            </div>
+            <div class="ceta-card">
+              <img src="FACEWASH.jpg" alt="Product 5">
+              <div class="product-name">Bright Healthy Radiance</div>
+              <button class="buy-btn">Buy Now</button>
+            </div>
+            <div class="ceta-card">
+              <img src="cleanser.png" alt="Product 6">
+              <div class="product-name">Daily Exfoliating Cleanser</div>
+              <button class="buy-btn">Buy Now</button>
+            </div>
+            <div class="ceta-card">
+              <img src="cleanser.png" alt="Product 7">
+              <div class="product-name">Moisturizing Lotion</div>
+              <button class="buy-btn">Buy Now</button>
+            </div>
+            <div class="ceta-card">
+              <img src="facepack.png" alt="Product 8">
+              <div class="product-name">Hydrating Night Cream</div>
+              <button class="buy-btn">Buy Now</button>
+            </div>
+            <div class="ceta-card">
+              <img src="FACEWASH.jpg" alt="Product 9">
+              <div class="product-name">Daily Facial Cleanser</div>
+              <button class="buy-btn">Buy Now</button>
+            </div>
+          </div>
+      
+       
+      
+       
+      
+        <div class="footer">
+          <a href="terms.html">Terms and Conditions</a> |
+         
+          
+          <a href="cookie.html">Cookie Policy</a>
+          <br><br>
+          © 2025 GALDERMA · EST. 1981
+        </div>
+      
+    <script src="index.js"></script>
+    
+</body>
+</html>

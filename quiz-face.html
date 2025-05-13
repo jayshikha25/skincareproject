@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skincare Quiz</title>
+    <link rel="stylesheet" href="style4.css">
+</head>
+<body>
+    <div class="question-box">
+
+        <!-- Question 1 -->
+        <div class="question active" data-question="skin_goals">
+          <h3>1. What are your skin goals?</h3>
+          <div class="option" >Hydrate & prevent dryness</div>
+          <div class="option">Boost radiance & diminish look of dark spots</div>
+          <div class="option">Clearer skin, treating & preventing acne</div>
+          <div class="option">Reduce redness & soothe irritated skin</div>
+          <div class="option">Oil & shine control</div>
+          <button class="next-btn">Next</button>
+        </div>
+    
+        <!-- Question 2 -->
+        <div class="question" data-question="skin_type">
+          <h3>2. What is your current skin type?</h3>
+          <div class="option">Dry</div>
+          <div class="option">Oily</div>
+          <div class="option">Combination</div>
+          <div class="option">Sensitive</div>
+          <div class="option">Normal</div>
+          <button class="next-btn">Next</button>
+        </div>
+    
+        <!-- Question 3 -->
+        <div class="question" data-question="skincare_frequency">
+          <h3>3. How often do you use skincare products?</h3>
+          <div class="option">Rarely</div>
+          <div class="option">Only moisturizer</div>
+          <div class="option">Cleanser + Moisturizer</div>
+          <div class="option">Full routine (cleanser, serum, etc.)</div>
+          <button class="next-btn">Next</button>
+        </div>
+    
+        <!-- Question 4 -->
+        <div class="question" data-question="skin_concerns">
+          <h3>4. Any specific skin concerns?</h3>
+          <div class="option">Acne or breakouts</div>
+          <div class="option">Redness or irritation</div>
+          <div class="option">Dark spots or pigmentation</div>
+          <div class="option">Wrinkles or fine lines</div>
+          <div class="option">None</div>
+          <button class="next-btn">Next</button>
+        </div>
+    
+        <!-- Question 5 -->
+        <div class="question" data-question="product_preference">
+          <h3>5. What type of products do you prefer?</h3>
+          <div class="option">Natural/organic</div>
+          <div class="option">Dermatologist-tested</div>
+          <div class="option">Fragrance-free</div>
+          <div class="option">Budget-friendly</div>
+          <div class="option">No preference</div>
+          <button class="next-btn">Finish</button>
+        </div>
+    
+        <!-- Results screen -->
+        <div class="complete-screen" style="display:none;">
+          <h2>🎉 You have finished the quiz!</h2>
+          <p>Thanks for sharing! We’ll tailor product recommendations to match your face care needs.</p>
+          <div id="productRecommendations"></div>
+        </div>
+    
+    </div>
+
+    <script src="scriptfacequiz.js"></script>
+</body>
+</html>

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="ourstorystyle.css">
+    <link rel="stylesheet" href="contactstyle.css">
+    <link rel="stylesheet" href="styleterms.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/fontawesome.min.css">
+ 
+</head>
+<body>
+    <header>
+        <nav> <div class="navbar">
+          <div class="logo">JASSI</div>
+          </div>
+          <div class="navbar">
+            <div class="nav-links">
+              <div class="nav-item">
+                <a  href="index.html">HOME </a>
+      
+                </div>
+            </div>
+            </div>
+
+         <div class="navbar">
+          <div class="nav-links">
+            <div class="nav-item" id="productsMenu">
+              <a href="javascript:void(0)">PRODUCTS </a>
+              <div class="mega-menu">
+                <div class="column">
+                  <h4>Categories</h4>
+                  <br>
+                  <a href="cleanser.html">Cleansers</a>
+                  <a href="#">Serum</a>
+                  <a href="#">Moisturiser</a>
+                  <a href="#">Body Wash</a>
+                  <a href="#">Sunscreens</a>
+                  <a href="#">Face Mask</a>
+                </div>
+            
+                <div class="column">
+                  <h4>Skin Type</h4><br>
+                  <a href="#">Dry Skin</a>
+                  <a href="#">Oily Skin</a>
+                  <a href="#">Normal Skin</a>
+                </div>
+            
+               </div>
+              </div>
+              </div>
+            </div> 
+            
+            
+        <div class="navbar">
+        <div class="nav-item" id="digitalMenu">
+        <a href="javascript:void(0)">Digital AI SKIN ANALYSIS   </a>
+        <div class="digital-dropdown">
+          
+       
+          <a href="quiz.html">
+    
+        <div class="card" id="productFinderCard">
+          
+          
+          <img src="AISKINANALYSIS.png" alt="Product Finder">
+          <div class="card-body">
+            <div class="card-title">Product Finder <span class="arrow">→</span></div>
+            <div class="card-desc">
+              Answer a few quick questions to find personalised solutions crafted just for you, either for your face or body skincare.
+            </div>
+    
+        </div>
+        </div>
+        </a>
+    <div id="startAnalysisBtn">
+        <div class="card" id="aiSkinCard  " >
+          <img src="AISKINANALYSIS.png" alt="AI Skin Analysis">
+          <div class="card-body">
+            <div class="card-title">AI Skin Analysis <span  class="arrow">→</span></div>
+            <div class="card-desc">
+              Take a selfie using our AI skin analysis tool to receive a personalized skin analysis report and recommended skincare routine.
+            </div>
+    </div>
+    
+            </div>
+            
+    
+            <div id="cameraSection" style="display: none;">
+              
+              <video id="video" autoplay></video><br>
+              <button id="captureBtn">📸 Capture Selfie</button><br>
+              <img id="selfie" alt="Your Selfie" style="display:none;" />
+            </div>
+          
+            <div id="report" style="display: none;">
+              <h4>Your Skin Report:</h4>
+              <div id="results">Click to analyze...</div>
+            </div>
+          
+    
+          </div>
+          </div>
+            </div>
+          </div>
+    
+    
+         
+          <!-- <div class="card">
+            <img src="AISKINANALYSIS.png" alt="Product Finder">
+            <div class="card-body">
+              <div class="card-title">Product Finder <span class="arrow">→</span></div>
+              <div class="card-desc">
+                Answer a few quick questions to find personalised solutions crafted just for you, either for your face or body skincare.
+              </div>
+            </div>
+          </div>
+              
+          <div class="card">
+            <img src="AISKINANALYSIS.png" alt="AI Skin Analysis">
+            <div class="card-body">
+              <div class="card-title">AI Skin Analysis <span class="arrow">→</span></div>
+              <div class="card-desc">
+                Take a selfie using our AI skin analysis tool to receive a personalized skin analysis report and recommended skincare routine.
+                
+    </div>
+    </div>
+    </div>
+          
+         
+          </div> -->
+    
+          <!-- __________________________________________________ -->
+    
+          <div class="navbar">
+            <div class="nav-item" id="dropdownMenu">
+             <a href="OurStory.html" >WHY CETAPHIL</a>
+              
+            </div>
+          </div>
+    
+        
+            <div class="nav-icons">
+              <input type="text" placeholder="Search..." class="search-bar">
+              <a href="#" onclick="openModal()"><i class="fas fa-user"></i></a></li>
+              <i class="fas fa-shopping-cart"></i>
+            </div>
+          </div> 
+        </nav> 
+    <!--modal -->
+    
+    <div id="authModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        
+        
+        <div class="logintime" id="loginForm">
+          <h2>Login</h2>
+    
+         
+          <div class="loginf">
+          <div class="loginbox">
+           <input type="email" placeholder="Enter your Email"></i>
+          <input type="password" placeholder="Password"></div>
+          <button>Login</button><br>
+          <p>Don't have an account? <a href="#" onclick="showSignup()">Sign up</a></p>
+        </div></div>
+        
+        <div  class="signupForm"id="signupForm"style="display:none;">
+          <h2>Sign Up</h2>
+          <div class="loginf">
+            <div class="loginbox">
+          
+          <input type="email" placeholder=" Enter your Email">
+          
+          
+          <input type="tel" placeholder= "Enter Your Number">
+          <input type="password" placeholder="Enter Password"></div>
+          <button>Sign Up</button>
+          <p>Already have an account? <a href="#" onclick="showLogin()">Login</a></p>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <div class="contact-container"><div class="contact">
+        <h1>COOKIE POLICY</h1>
+        <h3>Introduction and scope <bold>
+        </bold></h3>
+
+ 
+        <p> 
+
+            Galderma SA and its affiliates (hereinafter “Galderma”, “We”, “Us”) are responsible for the collection and processing of your data as they relate to cookies used in this website.  
+
+This Cookie Policy (hereinafter “Policy”) will explain how this website is using cookies in order to provide clear and relevant information to users on what choices the user has in terms of controlling what happens when he/she accesses our website.  
+
+The Policy uses the term ‘cookies’ to refer to cookies and similar technologies covered by the law (such as, for example, Local Shared Objects – commonly referred to as “flash cookies”, web beacons or bugs, including transparent clear gifs). The gathered information concerns data that could allow to identify web users/visitors by associating and processing them with other data kept by third parties (such as, for example, the IP address, domain and registration numbers of the computers used by people connecting to the website). These data are used and processed only for statistical purposes. 
+
+The Policy is an integral and substantial part of the Privacy Policy and the information notice contained in it and complies with the provisions set out by the applicable national and European data protection and data privacy laws and regulations, including the General Data Protection Regulation (GDPR 2016/679), and the e-Privacy Directive 2002/58/EC, as amended and in force and any other related national and European opinions and guidelines issued by competent Authorities. We recommend, therefore, that you also read our Privacy Policy to know more about Galderma’s general commitment to data protection. 
+
+The Policy applies to all Galderma websites and mobile applications (“Galderma Sites”).  </p>
+
+
+            <h3>1. WHAT IS A COOKIE? </h3>
+        <p>
+            A cookie is a small file, typically consisting of letters and numbers, downloaded on to a device when the user accesses the website. Cookies are text files that are placed on your computer by websites that you visit. Cookies are then sent back to the originating website on each subsequent visit, or to another website that recognises that cookie. Cookies contain information that is transferred to your computer’s hard drive. This information might be about you, your preferences or your device and is typically used to make the site work as you expect it. They are used in order to make websites work, or work more efficiently, as well as to provide information to the owners of the website. 
+
+Cookies are useful because they improve the website’s functionality and overall performance and provide the users with a more personalized experience. They also give insights on the use of our website by our visitors and help Us to understand how visitors are using our website and the services provided therein. 
+
+The use of cookies and similar technologies has for some time been commonplace and cookies in particular are important in the provision of many online services. Using such technologies is not, therefore, prohibited by the law but they do require that people are well informed in advance about the use of cookies installed on a website and are given the choice to directly accept all of them or if they wish so, to customize their cookies preferences  
+        </p>
+    
+        <h3>2. WHAT ARE THE TYPES OF COOKIES?  </h3>
+        <p class="company"> </p>
+<h3>Transmission 
+
+</h3>
+Session and persistent cookies 
+
+Cookies can expire at the end of a browser session (from when a user opens the browser window to when they exit the browser) or they can be stored for longer periods of time. 
+
+ 
+
+Session cookies expire after a browser session. Session cookies allow websites to link the actions of a user during a browser session. They may be used for a variety of purposes such as remembering what a user has put in their shopping basket as they browse around a site. They could also be used for security when a user is accessing internet banking or to facilitate use of webmail. Their use is strictly limited to the purpose of transmitting data (made up of random numbers created by the server) identifying the specific session and necessary to allow a safe and efficient website surfing by avoiding any other computer methods that could potentially compromise the users’ privacy. 
+
+ 
+
+Persistent cookies are stored persistently on a users’ device in between browser sessions. Persistent cookies allow the preferences or actions of the user across a site (or in some cases across different websites) to be remembered. Persistent cookies may be used for a variety of purposes including remembering users’ preferences and choices when using a site. 
+
+ 
+
+First and third-party cookies  
+
+Cookies can be classified as ‘first’ or ‘third’ party depending on the website or domain placing the cookie.  
+
+ 
+
+First party cookies in basic terms are cookies set by the domain visited by the user – the website displayed in the URL window: i.e., cookies set by Galderma on this website.  
+
+ 
+
+Third party cookies are cookies that are set by a domain other than the one being visited by the user: i.e., cookies, which are set by companies and web sites other than Galderma, such as Google, Facebook, YouTube etc.  
+<p>Any non-personal communication or material you transmit to this website by electronic mail or otherwise, including any data, questions, comments, suggestions or the like is, and will be treated as, non-confidential and non-proprietary. Anything you transmit or post becomes the property of the Galderma Group and may be used for any purpose, including but not limited to, reproduction, disclosure, transmission, publication, broadcast and posting. Furthermore, the Galderma Group is free to use for any purposes whatsoever (including but not limited to the developing, manufacturing, advertising and marketing of products) any ideas, artwork, inventions, developments, suggestions or concepts contained in any communication you send to this website. Any such use is without compensation to the party submitting information. By submitting information, you are also warranting that you own the material/content submitted, that it is not defamatory and that the Galderma Group's use will not violate any third party's rights or otherwise place us in breach of any applicable laws. The Galderma Group is under no obligation to use the information submitted. 
+
+</p>
+
+<h3> 5. POLICY UPDATE </h3>
+<p>We reserve the right to make any changes and corrections to this Policy. Please refer to this page from time to time to review these and new additional information. We will place updates on Galderma Sites and, where appropriate, we will notify of any changes by email. 
+
+  
+    
+     </p>
+     <h3>6. PRIVACY POLICY  </h3>
+     <p>For further information about how your data is used (including controller details), please see our Privacy Policy. 
+
+        This Cookie Policy was last updated November 2021. </p>
+    </div>
+      </div>
+
+
+
+<footer>
+    <div class="footer-top">
+      <div class="footer-logo">
+        <h2>JASSI</h2>
+        <!-- <p>Glow naturally with skincare that loves you back.</p> -->
+      </div>
+  
+      <div class="footer-column">
+        <h4>PRODUCT</h4>
+        <ul>
+          <li><a href="cleanser.html">Facial Cleansers</a></li>
+          <li><a href="bodywash.html">Body Wash</a></li>
+          <li><a href="moisturizer.html">Moisturisers</a></li>
+          <li><a href="serum.html">Serums</a></li>
+          <li><a href="sunscreen.html">Sunscreens</a></li>
+        </ul>
+      </div>
+  
+      <div class="footer-column">
+        <h4>LEARN</h4>
+        <ul>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="OurStory.html">Why Cetaphil</a></li>
+         
+          
+        </ul>
+      </div>
+  
+      <div class="footer-column">
+        <h4>LEGAL</h4>
+        <ul>
+          <li><a href="terms.html">Terms & Conditions</a></li>
+          
+          <li><a href="cookie.html">Cookie Policy</a></li>
+        </ul>
+      </div>
+    </div>
+  
+    <div class="footer-bottom">
+      <div class="social-icons">
+        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+      </div>
+      <div class="copyright">
+        &copy; 2025 Jassi Skincare. All rights reserved.
+      </div>
+    </div>
+  </footer>
+  
+  
+
+ 
+    
+  
+  
+<script src="index.js"></script>
+</body>
+</html>

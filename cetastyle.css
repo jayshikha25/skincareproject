@@ -1,0 +1,65 @@
+body {
+    font-family: Arial, sans-serif;
+   
+ 
+  }
+
+  .ceta-products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    max-width: 1350px;
+    margin: 0 auto;
+  }
+
+  .ceta-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    text-align: center;
+    padding: 20px;
+    transition: transform 0.2s;
+  }
+
+  .ceta-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .ceta-card img {
+    max-width: 1000px;
+    height: 400px;
+    object-fit: contain;
+    border-radius: 10px;
+  }
+
+  .product-name {
+    font-size: 16px;
+    margin: 15px 0;
+    color: #003c71;
+  }
+
+  .buy-btn {
+    background: linear-gradient(to right, #003c71, #1fb2cc);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+
+  .buy-btn:hover {
+    opacity: 0.9;
+  }
+
+  @media (max-width: 900px) {
+    .ceta-products {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .ceta-products {
+      grid-template-columns: 1fr;
+    }
+  }

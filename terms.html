@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="ourstorystyle.css">
+    <link rel="stylesheet" href="contactstyle.css">
+    <link rel="stylesheet" href="styleterms.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/fontawesome.min.css">
+ 
+</head>
+<body>
+    <header>
+        <nav> <div class="navbar">
+          <div class="logo">JASSI</div>
+          </div>
+          <div class="navbar">
+            <div class="nav-links">
+              <div class="nav-item">
+                <a  href="index.html">HOME </a>
+      
+                </div>
+            </div>
+            </div>
+
+         <div class="navbar">
+          <div class="nav-links">
+            <div class="nav-item" id="productsMenu">
+              <a href="javascript:void(0)">PRODUCTS </a>
+              <div class="mega-menu">
+                <div class="column">
+                  <h4>Categories</h4>
+                  <br>
+                  <a href="cleanser.html">Cleansers</a>
+                  <a href="#">Serum</a>
+                  <a href="#">Moisturiser</a>
+                  <a href="#">Body Wash</a>
+                  <a href="#">Sunscreens</a>
+                  <a href="#">Face Mask</a>
+                </div>
+            
+                <div class="column">
+                  <h4>Skin Type</h4><br>
+                  <a href="#">Dry Skin</a>
+                  <a href="#">Oily Skin</a>
+                  <a href="#">Normal Skin</a>
+                </div>
+            
+               </div>
+              </div>
+              </div>
+            </div> 
+            
+            
+        <div class="navbar">
+        <div class="nav-item" id="digitalMenu">
+        <a href="javascript:void(0)">Digital AI SKIN ANALYSIS   </a>
+        <div class="digital-dropdown">
+          
+       
+          <a href="quiz.html">
+    
+        <div class="card" id="productFinderCard">
+          
+          
+          <img src="AISKINANALYSIS.png" alt="Product Finder">
+          <div class="card-body">
+            <div class="card-title">Product Finder <span class="arrow">→</span></div>
+            <div class="card-desc">
+              Answer a few quick questions to find personalised solutions crafted just for you, either for your face or body skincare.
+            </div>
+    
+        </div>
+        </div>
+        </a>
+    <div id="startAnalysisBtn">
+        <div class="card" id="aiSkinCard  " >
+          <img src="AISKINANALYSIS.png" alt="AI Skin Analysis">
+          <div class="card-body">
+            <div class="card-title">AI Skin Analysis <span  class="arrow">→</span></div>
+            <div class="card-desc">
+              Take a selfie using our AI skin analysis tool to receive a personalized skin analysis report and recommended skincare routine.
+            </div>
+    </div>
+    
+            </div>
+            
+    
+            <div id="cameraSection" style="display: none;">
+              
+              <video id="video" autoplay></video><br>
+              <button id="captureBtn">📸 Capture Selfie</button><br>
+              <img id="selfie" alt="Your Selfie" style="display:none;" />
+            </div>
+          
+            <div id="report" style="display: none;">
+              <h4>Your Skin Report:</h4>
+              <div id="results">Click to analyze...</div>
+            </div>
+          
+    
+          </div>
+          </div>
+            </div>
+          </div>
+    
+    
+         
+          <!-- <div class="card">
+            <img src="AISKINANALYSIS.png" alt="Product Finder">
+            <div class="card-body">
+              <div class="card-title">Product Finder <span class="arrow">→</span></div>
+              <div class="card-desc">
+                Answer a few quick questions to find personalised solutions crafted just for you, either for your face or body skincare.
+              </div>
+            </div>
+          </div>
+              
+          <div class="card">
+            <img src="AISKINANALYSIS.png" alt="AI Skin Analysis">
+            <div class="card-body">
+              <div class="card-title">AI Skin Analysis <span class="arrow">→</span></div>
+              <div class="card-desc">
+                Take a selfie using our AI skin analysis tool to receive a personalized skin analysis report and recommended skincare routine.
+                
+    </div>
+    </div>
+    </div>
+          
+         
+          </div> -->
+    
+          <!-- __________________________________________________ -->
+    
+          <div class="navbar">
+            <div class="nav-item" id="dropdownMenu">
+             <a href="OurStory.html" >WHY CETAPHIL</a>
+              
+            </div>
+          </div>
+    
+        
+            <div class="nav-icons">
+              <input type="text" placeholder="Search..." class="search-bar">
+              <a href="#" onclick="openModal()"><i class="fas fa-user"></i></a></li>
+              <i class="fas fa-shopping-cart"></i>
+            </div>
+          </div> 
+        </nav> 
+    <!--modal -->
+    
+    <div id="authModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        
+        
+        <div class="logintime" id="loginForm">
+          <h2>Login</h2>
+    
+         
+          <div class="loginf">
+          <div class="loginbox">
+           <input type="email" placeholder="Enter your Email"></i>
+          <input type="password" placeholder="Password"></div>
+          <button>Login</button><br>
+          <p>Don't have an account? <a href="#" onclick="showSignup()">Sign up</a></p>
+        </div></div>
+        
+        <div  class="signupForm"id="signupForm"style="display:none;">
+          <h2>Sign Up</h2>
+          <div class="loginf">
+            <div class="loginbox">
+          
+          <input type="email" placeholder=" Enter your Email">
+          
+          
+          <input type="tel" placeholder= "Enter Your Number">
+          <input type="password" placeholder="Enter Password"></div>
+          <button>Sign Up</button>
+          <p>Already have an account? <a href="#" onclick="showLogin()">Login</a></p>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <div class="contact-container"><div class="contact">
+        <h1>CETAPHIL TERMS AND CONDITIONS</h1>
+        <h3><bold>
+        Thank you for visiting this website. Please read the Terms and Conditions contained in this document carefully since any use of this website constitutes your acceptance of the Terms and Conditions set out herein. </bold></h3>
+
+ 
+        <p> 
+
+            Throughout this site, the terms "we", "us", "our" “Cetaphil” "Galderma" and "Galderma Group" refer to  Galderma India Private Limited (hereinafter “Galderma India”), Galderma S.A. which is the parent company of Galderma India and any of its affiliated companies as appropriate in the context. “You” refers to any person accessing and/or using this website. </p>
+
+
+            <h3>Site Infromation</h3>
+        <p>
+            This website is designed for educational and informational purposes only. This information is not intended as a substitute for informed medical advice or recommendations from healthcare professionals. You should not use this information to diagnose or treat a health problem or disease without consulting with a qualified healthcare provider. 
+
+            Galderma does not endorse or attest to the validity or accuracy of any treatments, medications or non-Galderma products described, mentioned or discussed in any of the services, databases or pages accessible within or from this website or any other Galderma service or publication. Furthermore, Galderma makes no representations concerning the efficacy, appropriateness or suitability of any such products or treatments. Before acting on any information contained on the web pages, you agree that you will consult your healthcare provider to determine whether the information you are relying on is appropriate for your medical conditions. Galderma is not engaged in rendering medical advice or services. 
+            
+            In view of the possibility of human error or advances in medical knowledge, neither Galderma, its sponsors, its staff nor other parties involved in providing the services, databases or pages accessible within or from this website or any other service or publication of Galderma warrant that the information contained therein is in every respect accurate or complete and they are not responsible or liable for any errors or omissions that may be found in such information or for the results obtained from the use of such information. You are encouraged to consult other sources and confirm the information contained in any of these services, databases or pages accessible within or from this website or any other service or publication of Galderma. 
+        </p>
+    
+        <h3>Website Privacy Notice </h3>
+        <p class="company">Any personal information or material sent to this website are subject to the terms and conditions set out in the Privacy Notice located on this website. 
+
+            Accuracy, completeness and timeliness of information 
+            
+            Whilst we use all reasonable attempts to ensure the accuracy and completeness of information on this website, we are not responsible if the information that we make available on this website is not accurate or complete. Any reliance upon the material on this website shall be at your own risk. You agree that it is your responsibility to monitor any changes to the material and the information contained on this website. </p>
+<h3>Transmission 
+
+</h3>
+
+<p>Any non-personal communication or material you transmit to this website by electronic mail or otherwise, including any data, questions, comments, suggestions or the like is, and will be treated as, non-confidential and non-proprietary. Anything you transmit or post becomes the property of the Galderma Group and may be used for any purpose, including but not limited to, reproduction, disclosure, transmission, publication, broadcast and posting. Furthermore, the Galderma Group is free to use for any purposes whatsoever (including but not limited to the developing, manufacturing, advertising and marketing of products) any ideas, artwork, inventions, developments, suggestions or concepts contained in any communication you send to this website. Any such use is without compensation to the party submitting information. By submitting information, you are also warranting that you own the material/content submitted, that it is not defamatory and that the Galderma Group's use will not violate any third party's rights or otherwise place us in breach of any applicable laws. The Galderma Group is under no obligation to use the information submitted. 
+
+</p>
+
+<h3>Jurisdiction and Governing law </h3>
+<p>The Galderma Group makes no representations that the material and information on this website are appropriate or available in all national locations or languages. 
+
+    You and the Galderma Group agree that any controversy or claim arising from or pertaining to the use of this website shall be governed by laws of India and be submitted to the exclusive jurisdiction of the courts of Mumbai, India. 
+    
+     </p>
+     <h3>Legal notice update </h3>
+     <p>We reserve the right to make any changes and corrections to this notice. Please refer to this page from time to time to review these and new additional information. </p>
+    </div>
+      </div>
+
+
+
+<footer>
+    <div class="footer-top">
+      <div class="footer-logo">
+        <h2>JASSI</h2>
+        <!-- <p>Glow naturally with skincare that loves you back.</p> -->
+      </div>
+  
+      <div class="footer-column">
+        <h4>PRODUCT</h4>
+        <ul>
+          <li><a href="cleanser.html">Facial Cleansers</a></li>
+          <li><a href="bodywash.html">Body Wash</a></li>
+          <li><a href="moisturizer.html">Moisturisers</a></li>
+          <li><a href="serum.html">Serums</a></li>
+          <li><a href="sunscreen.html">Sunscreens</a></li>
+        </ul>
+      </div>
+  
+      <div class="footer-column">
+        <h4>LEARN</h4>
+        <ul>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="OurStory.html">Why Cetaphil</a></li>
+        
+          
+        </ul>
+      </div>
+  
+      <div class="footer-column">
+        <h4>LEGAL</h4>
+        <ul>
+          <li><a href="terms.html">Terms & Conditions</a></li>
+          
+          <li><a href="cookie.html">Cookie Policy</a></li>
+        </ul>
+      </div>
+    </div>
+  
+    <div class="footer-bottom">
+      <div class="social-icons">
+        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+      </div>
+      <div class="copyright">
+        &copy; 2025 Jassi Skincare. All rights reserved.
+      </div>
+    </div>
+  </footer>
+  
+  
+
+ 
+    
+  
+  
+<script src="index.js"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+}
+
+.question-box {
+
+  margin: 50px auto;
+  padding: 20px;
+  background-color:green ;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.question {
+  display: none;
+}
+
+.question.active {
+  display: block;
+}
+
+h3 {
+  font-size: 18px;
+  color: #333;
+}
+
+.option {
+  padding: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  margin-bottom: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.option:hover {
+  background-color: #eaeaea;
+}
+
+.next-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  cursor: pointer;
+  margin-top: 20px;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.next-btn:hover {
+  background-color: #0056b3;
+}
+
+.complete-screen {
+  text-align: center;
+  padding: 20px;
+  background-color: #f9f9f9;
+  display: none;
+}
+
+#productRecommendations {
+  margin-top: 20px;
+}

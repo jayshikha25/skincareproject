@@ -1,0 +1,44 @@
+body {font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: lightcyan;
+    color: #111;
+    }
+    
+    .contact {
+    max-width: 1000px;
+    margin: 100px auto;
+    padding: 0 20px;
+   
+    line-height: 1.8;
+
+    }
+    
+    .contact h1 {
+    font-size: 32px;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    margin-top: 70px;
+    text-align: center;
+    justify-content: center;
+    }
+    
+    .contact p {
+    font-size: 16px;
+    margin: 10px 0;
+    }
+    
+    .contact, .company {
+    
+    margin-top: 20px;
+    }
+    
+    .contact a {
+    color: #0077cc;
+    text-decoration: none;
+    }
+    
+    .contact a:hover {
+    text-decoration: underline;
+    }
+    

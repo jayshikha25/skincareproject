@@ -8,7 +8,12 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/fontawesome.min.css">
  
- 
+<!-- Firebase scripts for Authentication and Firestore -->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+<script type="module" src="index.js"></script>
+
 </head>
 <body>
   <header>
@@ -38,7 +43,7 @@
               <a href="moisturizer.html">Moisturiser</a>
               <a href="bodywash.html">Body Wash</a>
               <a href="sunscreen.html">Sunscreens</a>
-              <a href="facemask.html">Face Mask</a>
+           
             </div>
         
             <div class="column">
@@ -139,52 +144,141 @@
         <div class="nav-icons">
           <input type="text" placeholder="Search..." class="search-bar">
           <a href="#" onclick="openModal()"><i class="fas fa-user"></i></a></li>
-          <i class="fas fa-shopping-cart"></i>
-        </div>
-      </div> 
+          <!-- <i class="fas fa-shopping-cart" onclick="openCartModal()">
+            <div id="cartModal" class="modal">
+              <div class="modal-content">
+                <span class="close" onclick="closeCartModal()">&times;</span> </i>
+              </div>
+                <h2>Your Cart</h2>
+                <div id="cart-container"></div>
+              </div>
+            </div>
+             
+            </div>
+           
+
+
+          -->
+            <div class="cartlogmodal">
+          <i class="fas fa-shopping-cart" onclick="openCartModal()">
+            <div id="cartModal" class="modal">
+              <div class="modal-content">
+                 <h2>Your Cart</h2>
+                <div id="cart-container"></div>
+              </div></i>
+            </div>
+      
     </nav> 
 <!--modal -->
 
-<div id="authModal" class="modal">
+ <div id="authModal" class="modal">
   <div class="modal-content">
     <span class="close" onclick="closeModal()">&times;</span>
+    <div id="auth-container" class="logintime">
+      <br>
+      <br>
+      <h2>Login / Signup</h2>
+      <br>
+    <div class="loginbox">
+      <input type="email" id="email" placeholder="Email">
+      <br>
+      <input type="password" id="password" placeholder="Password">
+
+    </div>
+    <br>
+      <button onclick="signup()">Sign Up</button>
+      <button onclick="login()">Log In</button>
+      <button onclick="logout()">Log Out</button>
     
+      <p id="message"></p>
+    </div> 
+    </div>
+    </div>
+
+
+    <!-- <div id="auth-container">
+      <h2>Login / Signup</h2>
     
-    <div class="logintime" id="loginForm">
+      <input type="email" id="email" placeholder="Email">
+      <input type="password" id="password" placeholder="Password">
+    
+      <button onclick="signup()">Sign Up</button>
+      <button onclick="login()">Log In</button>
+      <button onclick="logout()">Log Out</button>
+    
+      <p id="message"></p>
+    </div> 
+
+
+
+    </div>
+    
+    </div>
+    
+   <div class="logintime" id="loginForm">
       <h2>Login</h2>
 
      
       <div class="loginf">
-      <div class="loginbox">
-       <input type="email" placeholder="Enter your Email"></i>
-      <input type="password" placeholder="Password"></div>
-      <button>Login</button><br>
+      <div class="loginbox" id="auth-container">
+       <input type="email" id="email"  placeholder="Enter your Email"></i>
+      <input type="password"  id="password" placeholder="Password"></div>
+      <button onclick="login()">Login</button><br>
       <p>Don't have an account? <a href="#" onclick="showSignup()">Sign up</a></p>
     </div></div>
     
-    <div  class="signupForm"id="signupForm"style="display:none;">
+    <div  class="signupForm" id="signupForm"style="display:none;">
       <h2>Sign Up</h2>
       <div class="loginf">
         <div class="loginbox">
       
-      <input type="email" placeholder=" Enter your Email">
+      <input type="email" id="email"  placeholder=" Enter your Email">
       
       
-      <input type="tel" placeholder= "Enter Your Number">
-      <input type="password" placeholder="Enter Password"></div>
-      <button>Sign Up</button>
+      <input type="tel"id="tele"  placeholder= "Enter Your Number">
+      <input type="password" id="password" placeholder="Enter Password"></div>
+      <button onclick="signup()">Sign Up</button>
       <p>Already have an account? <a href="#" onclick="showLogin()">Login</a></p>
+      <p id="message"></p>
+
     </div>
   </div>
 </div>
-</div>
+</div> -->
 
+<!-- 
+ <div id="auth-container">
+  <h2>Login / Signup</h2>
+
+  <input type="email" id="email" placeholder="Email">
+  <input type="password" id="password" placeholder="Password">
+
+  <button onclick="signup()">Sign Up</button>
+  <button onclick="login()">Log In</button>
+  <button onclick="logout()">Log Out</button>
+
+  <p id="message"></p>
+</div> -->
+<!-- <div id="auth-container">
+  <h2>Login / Signup</h2>
+
+  <input type="email" id="email" placeholder="Email">
+  <input type="password" id="password" placeholder="Password">
+
+  <button onclick="signup()">Sign Up</button>
+  <button onclick="login()">Log In</button>
+  <button onclick="logout()">Log Out</button>
+
+  <p id="message"></p>
+</div> -->
+
+<div id="cart-notification" class="cart-notification">Item added to cart!</div>
 
 
     <div class="slideshow">
         <div class="slides">
           <img src="WhatsApp Image 2025-05-12 at 23.19.05_60f7f9b0.jpg" alt="Image 1" >
-          <img src="WhatsApp Image 2025-05-12 at 23.19.05_60f7f9b0.jpg" alt="Image 2">
+          <img src="jassiSkincarebackgroundImage.png" alt="Image 2">
           <img src="WhatsApp Image 2025-05-12 at 23.19.05_60f7f9b0.jpg" alt="Image 3">
           <img src="WhatsApp Image 2025-05-12 at 23.19.05_60f7f9b0.jpg" alt="Image 4">
         </div>
@@ -210,7 +304,7 @@
             <a href="serum.html">Learn More</a>
           </div>
           <div class="product-card">
-            <img  src="WhatsApp Image 2025-03-02 at 21.03.53_dcdb35c8.jpg" alt="Revitalizing">
+            <img  src="WhatsApp Image 2025-03-02 at 21.03.53_dcdb35c8.jpg" alt="Product3">
             <h3>TONER</h3>
            
           
@@ -280,10 +374,10 @@
   <div class="slideshow2">
   <div class="slideshow">
     <div class="slides">
-      <img src="background_image.png" alt="Image 1" >
-      <img src="background_Image1.png" alt="Image 2">
-      <img src="background_image.png" alt="Image 3">
-      <img src="background_Image1.png" alt="Image 4">
+      <img src="WhatsApp Image 2025-05-14 at 18.13.20_aba79e29.jpg" alt="Image 1" >
+      <img src="WhatsApp Image 2025-05-14 at 18.13.20_aba79e29.jpg" alt="Image 1" alt="Image 2">
+      <img src="WhatsApp Image 2025-05-14 at 18.13.20_aba79e29.jpg" alt="Image 1" alt="Image 3">
+      <img src="WhatsApp Image 2025-05-14 at 18.13.20_aba79e29.jpg" alt="Image 1" alt="Image 4">
     </div>
   </div>
 </div>
@@ -295,27 +389,63 @@
   <div class="carousel-container2">
     <div class="carousel-track">
 
+      <div class="product" >
+        <img src="Untitled design.png" alt="Moisturiser" />
+        <h3> Moisturiser</h3>
+        <p>₹570</p>
+        <button onclick="viewProduct('moisturiser')">Buy Now</button>
+        
+      </div>
+
+      <div class="product" >
+        <img src="Untitled design (7).png" alt="Face Serum" />
+        <h3>Face Serum</h3>
+        <p>₹600</p>
+        <button onclick="viewProduct('faceserum')">Buy Now</button>
+      </div>
+
+      <div class="product" >
+        <img src="WhatsApp Image 2025-03-02 at 21.03.53_dcdb35c8.jpg" alt="Toner" />
+        <h3>Toner</h3>
+        <p>₹400</p>
+        <button onclick="viewProduct('toner')">Buy Now</button>
+        <button class="add-to-cart-btn" data-name="Toner" data-price="400">Add to Cart</button>
+       
+
+      </div>
+
+      <div class="product" >
+        <img src="Untitled design (1).png" alt="Exfoliator" />
+        <h3>Gentle Exfoliator</h3>
+        <p>₹600</p>
+        <button onclick="viewProduct('gentleexfoliator')">Buy Now</button>
+      </div>
+
+      <div class="product" >
+        <img src="WhatsApp Image 2025-03-02 at 20.36.08_55d7d1c2.jpg" alt="bodywash" />
+        <h3>Body Wash</h3>
+        <p>₹800</p>
+        <button onclick="viewProduct('bodywash')">Buy Now</button>
+      </div>
+
+
+    </div></div>
+
       
       <!-- Original 7 product cards -->
-      <div class="product-card2"><img src="Untitled design (1).png" /><h3>Product 1</h3><p>1579</p><button class="buy-now-btn" onclick="buyNow(123)">Buy Now</button></div>
-      <div class="product-card2"><img src="Untitled design (2).png" /><h3>Product 2</h3><p>1600</p><button class="buy-now-btn" onclick="buyNow(123)">Buy Now</button></div>
-      <div class="product-card2"><img src="Untitled design (3).png" /><h3>Product 3</h3><p>1650</p><button class="buy-now-btn" onclick="buyNow(123)">Buy Now</button></div>
-      <div class="product-card2"><img src="Untitled design (4).png" /><h3>Product 4</h3><p>1700</p><button class="buy-now-btn" onclick="buyNow(123)">Buy Now</button></div>
-      <div class="product-card2"><img src="Untitled design (5).png" /><h3>Product 5</h3><p>400</p>><button class="buy-now-btn" onclick="buyNow(123)">Buy Now</button></div>
-      <div class="product-card2"><img src="Untitled design (6).png" /><h3>Product 6</h3><p>500</p>><button class="buy-now-btn" onclick="buyNow(123)">Buy Now</button></div>
-      <div class="product-card2"><img src="Untitled design (7).png" /><h3>Product 7</h3><p>600</p>><button class="buy-now-btn" onclick="buyNow(123)">Buy Now</button></div>
+     
+      <!-- <div class="product-card2"><img src="Untitled design (1).png" id="productImage"/><h3>Gentle Exfoliator</h3><p>1579</p><button onclick="buyNow('Untitled design (1).png')">Buy Now</button> 
+
+
+      
       </div>
-  
-      <!-- Duplicate 7 product cards for seamless looping
-      <div class="product-card2"><img src="Untitled design (1).png" /><h3>Product 1</h3><p>$19.99</p></div>
-      <div class="product-card2"><img src="Untitled design (2).png" /><h3>Product 2</h3><p>$24.99</p></div>
-      <div class="product-card"><img src="Untitled design (4).png" /><h3>Product 3</h3><p>$29.99</p></div>
-      <div class="product-card"><img src="Untitled design (3).png" /><h3>Product 4</h3><p>$34.99</p></div>
-      <div class="product-card"><img src="Untitled design (5).png" /><h3>Product 5</h3><p>$39.99</p></div>
-      <div class="product-card"><img src="Untitled design (6).png" /><h3>Product 6</h3><p>$44.99</p></div>
-      <div class="product-card"><img src="Untitled design (7).png" /><h3>Product 7</h3><p>$49.99</p></div> -->
-  
-  
+      <div class="product-card2"><img src="Untitled design.png" id="productImage2" /><h3> Face-Moisturizers</h3><p>1600</p><button class="buy-now-btn" onclick="buyNow('Untitled design.png')">Buy Now</button></div>
+      <div class="product-card2"><img src="Untitled design (7).png" id="productImage3" /><h3>Vitamin-C Serum</h3><p>1650</p><button class="buy-now-btn" onclick="buyNow('Untitled design (7).png')">Buy Now</button></div>
+      <div class="product-card2"><img src="Untitled design (1).png"  id="productImage4" /><h3>Toner</h3><p>1700</p><button class="buy-now-btn" onclick="buyNow('Untitled design (1).png')">Buy Now</button></div>
+      <div class="product-card2"><img src="sunscreen.png"  id="productImage5"/><h3>Body Wash</h3><p>1400</p><button class="buy-now-btn" onclick="buyNow('sunscreen.png')">Buy Now</button></div>
+     
+      </div> -->
+
   
     
    
@@ -422,6 +552,30 @@
   
   
     <script src="index.js"></script>
+
+    <!-- <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-analytics.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+    
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyB8GYtBL11bl_z3RVN1d2SFwKr27qXwSLc",
+        authDomain: "skincare-193a2.firebaseapp.com",
+        projectId: "skincare-193a2",
+        storageBucket: "skincare-193a2.firebasestorage.app",
+        messagingSenderId: "1081830245370",
+        appId: "1:1081830245370:web:9acc7e8708ca2e727a5a43",
+        measurementId: "G-4R5NPZRL1X"
+      };
+    
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+    </script> -->
   </body>
   </html>
     

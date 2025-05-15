@@ -8,7 +8,7 @@ body {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 40px;
-    max-width: 1350px;
+    max-width: 1200px;
     margin: 0 auto;
   }
 
@@ -19,6 +19,7 @@ body {
     text-align: center;
     padding: 20px;
     transition: transform 0.2s;
+    height: 400px;
   }
 
   .ceta-card:hover {
@@ -26,8 +27,8 @@ body {
   }
 
   .ceta-card img {
-    max-width: 1000px;
-    height: 400px;
+   max-width: 500px;
+    height: 200px;
     object-fit: contain;
     border-radius: 10px;
   }

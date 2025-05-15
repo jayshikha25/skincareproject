@@ -29,23 +29,140 @@ const digitalMenu = document.getElementById('digitalMenu');
   });
 
   function openModal() {
-    document.getElementById("authModal").style.display = "flex";
-  }
+  document.getElementById("authModal").style.display = "flex";
+   }
   
   function closeModal() {
-    document.getElementById("authModal").style.display = "none";
+  document.getElementById("authModal").style.display = "none";
   }
   
   function showSignup() {
-    document.getElementById("loginForm").style.display = "none";
-    document.getElementById("signupForm").style.display = "block";
-  }
+  document.getElementById("loginForm").style.display = "none";
+     document.getElementById("signupForm").style.display = "block";
+   }
   
-  function showLogin() {
-    document.getElementById("signupForm").style.display = "none";
-    document.getElementById("loginForm").style.display = "block";
+  // function showLogin() {
+  //   document.getElementById("signupForm").style.display = "none";
+  //   document.getElementById("loginForm").style.display = "block";
+  // }
+
+  // function signup() {
+  //   const email = document.getElementById("Email").value;
+  //   const password = document.getElementById("Password").value;
+  //   const tele = document.getElementById("Tele").value;
+
+  //   auth.createUserWithEmailAndPassword(email, password,tele)
+  //     .then((userCredential) => {
+  //       document.getElementById("message").innerText = "✅ Signup successful!";
+  //     })
+  //     .catch((error) => {
+  //       document.getElementById("message").innerText = `❌ ${error.message}`;
+  //     });
+  // }
+
+  // function login() {
+  //   const email = document.getElementById("Email").value;
+  //   const password = document.getElementById("Password").value;
+
+  //   auth.signInWithEmailAndPassword(email, password)
+  //     .then((userCredential) => {
+  //       document.getElementById("message").innerText = "✅ Login successful!";
+  //     })
+  //     .catch((error) => {
+  //       document.getElementById("message").innerText = `❌ ${error.message}`;
+  //     });
+  // }
+
+  // auth.onAuthStateChanged((user) => {
+  //   if (user) {
+  //     document.getElementById("message").innerText = `🔓 Logged in as ${user.email}`;
+  //   } else {
+  //     console.log("User not logged in");
+  //   }
+  // });
+
+  let currentUser = null;
+  let cart = [];
+
+  
+  const firebaseConfig = {
+    apiKey: "AIzaSyB8GYtBL11bl_z3RVN1d2SFwKr27qXwSLc",
+        authDomain: "skincare-193a2.firebaseapp.com",
+        projectId: "skincare-193a2",
+        storageBucket: "skincare-193a2.firebasestorage.app",
+        messagingSenderId: "1081830245370",
+        appId: "1:1081830245370:web:9acc7e8708ca2e727a5a43",
+        measurementId: "G-4R5NPZRL1X"
+  };
+
+
+  // ✅ Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+ 
+
+  // ✅ Initialize Firebase Auth
+  const auth = firebase.auth();
+  const db = firebase.firestore();
+  function signup() {
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
+
+    if (email === "") {
+      alert("Please enter your email.");
+      return;  // Stop function if empty
+    }
+    if (password === "") {
+      alert("Please enter your password.");
+      return;
+    }
+  
+    auth.createUserWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        document.getElementById("message").innerText = "✅ Signup successful!";
+      })
+      .catch((error) => {
+        document.getElementById("message").innerText = `❌ ${error.message}`;
+      });
   }
 
+  // Login Function
+  function login() {
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
+
+    if (email === "") {
+      alert("Please enter your email.");
+      return;
+    }
+    if (password === "") {
+      alert("Please enter your password.");
+      return;
+    }
+  
+    auth.signInWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        document.getElementById("message").innerText = "✅ Login successful!";
+      })
+      .catch((error) => {
+        document.getElementById("message").innerText = `❌ ${error.message}`;
+      });
+  }
+
+  // Logout Function
+  function logout() {
+    auth.signOut().then(() => {
+      document.getElementById("message").innerText = "👋 Logged out.";
+    });
+  }
+
+  // Show login status (optional)
+  auth.onAuthStateChanged((user) => {
+    if (user) {
+      document.getElementById("message").innerText = `🔓 Logged in as ${user.email}`;
+    } else {
+      console.log("User not logged in");
+    }
+  });
   const dropdownMenu = document.getElementById('dropdownMenu');
 
   document.addEventListener('click', function (e) {
@@ -56,353 +173,240 @@ const digitalMenu = document.getElementById('digitalMenu');
     }
   });
 
-//   const FACEPP_API_KEY = 'VXCnHCh5Ptbxjr4Q_LVEk3pLDEEgj1NH';
-// const FACEPP_API_SECRET = 'rqleJgvsOZuA5KzfICoTaei5T7ldlOrT';
-
-//   const startBtn = document.getElementById('startAnalysisBtn');
-// const video = document.getElementById('video');
-// const selfie = document.getElementById('selfie');
-// const results = document.getElementById('results');
-// const cameraSection = document.getElementById('cameraSection');
-// const report = document.getElementById('report');
-
-// // Step 1: Start camera when arrow clicked
-// startBtn.addEventListener('click', () => {
-//   cameraSection.style.display = 'block';
-//   navigator.mediaDevices.getUserMedia({ video: true })
-//     .then(stream => video.srcObject = stream)
-//     .catch(err => alert("Camera access denied. Please allow webcam."));
-// });
-
-// // Step 2: Take photo and simulate analysis
-// document.getElementById('captureBtn').addEventListener('click', () => {
-//   const canvas = document.createElement('canvas');
-//   canvas.width = video.videoWidth;
-//   canvas.height = video.videoHeight;
-//   const ctx = canvas.getContext('2d');
-//   ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-
-//   const imageData = canvas.toDataURL('image/png');
-//   selfie.src = imageData;
-//   selfie.style.display = 'block';
-
-//   // Stop camera after capture
-//   video.srcObject.getTracks().forEach(track => track.stop());
-
-//   // Simulate AI
-//   analyzeRealSkin(imageData);
-// });
-
-// async function sendToFaceAPI(base64Image) {
-//   const formData = new FormData();
-
-//   formData.append('api_key', FACEPP_API_KEY);
-//   formData.append('api_secret', FACEPP_API_SECRET);
-//   formData.append('image_base64', base64Image.split(',')[1]); // remove data:image/png;base64,
-//   formData.append('return_attributes', 'skinstatus');
-
-//   const response = await fetch('https://api-us.faceplusplus.com/facepp/v3/detect', {
-//     method: 'POST',
-//     body: formData
-//   });
-
-//   const data = await response.json();
-//   return data;
-// }
-// async function analyzeRealSkin(imageBase64) {
-//   results.innerHTML = 'Analyzing with real AI...';
-
-//   try {
-//     const data = await sendToFaceAPI(imageBase64);
-    
-//     const skin = data.faces[0]?.attributes?.skinstatus;
-//     if (!skin) throw new Error("No skin data found");
-
-//     results.innerHTML = `
-//       <p>🧴 Acne: ${skin.acne * 100}%</p>
-//       <p>💧 Health: ${skin.health * 100}%</p>
-//       <p>🕳️ Stain: ${skin.stain * 100}%</p>
-//       <p>🔴 Dark Circles: ${skin.dark_circle * 100}%</p>
-//     `;
-//   } catch (err) {
-//     results.innerHTML = 'Failed to analyze. ' + err.message;
-//   }
-// }
-
-
-// // ✅ Replace these with your real Face++ API key and secret
-// const FACEPP_API_KEY = 'VXCnHCh5Ptbxjr4Q_LVEk3pLDEEgj1NH';
-// const FACEPP_API_SECRET = 'rqleJgvsOZuA5KzfICoTaei5T7ldlOrT';
-
-// // ✅ Get references to elements
-// const startBtn = document.getElementById('startAnalysisBtn');
-// const captureBtn = document.getElementById('captureBtn');
-// const video = document.getElementById('video');
-// const selfie = document.getElementById('selfie');
-// const results = document.getElementById('results');
-// const cameraSection = document.getElementById('cameraSection');
-// const report = document.getElementById('report');
-// const cardElements = document.querySelectorAll('.digital-dropdown .card');
-// const productFinderCard = document.getElementById('productFinderCard');
-// const aiSkinCard =document.getElementById('aiSkinCard')
-
-
-
-
-// // ✅ Step 1: Start the camera when arrow (start) is clicked
-// startBtn.addEventListener('click', (event) => {
-//   event.preventDefault();
-//   cardElements.forEach(card => card.style.display = 'none');
-//   //  productFinderCard.style.display ='none';
-//   //  aiSkinCard.style.display = 'none';
-//   cameraSection.style.display = 'block';
-//   report.style.display = 'none';
-
-//   navigator.mediaDevices.getUserMedia({ video: true })
-//     .then(stream => {
-//       video.srcObject = stream;
-//     })
-//     .catch(err => {
-//       alert("Camera access denied. Please allow webcam.");
-//       console.error(err);
-//     });
-// });
-
-// // ✅ Step 2: Capture image and analyze when button clicked
-// captureBtn.addEventListener('click', () => {
-//   const canvas = document.createElement('canvas');
-//   canvas.width = video.videoWidth;
-//   canvas.height = video.videoHeight;
-//   const ctx = canvas.getContext('2d');
-//   ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-
-//   const imageData = canvas.toDataURL('image/png');
-//   selfie.src = imageData;
-//   selfie.style.display = 'block';
-
-//   // Stop camera
-//   video.srcObject.getTracks().forEach(track => track.stop());
-
-//   // Show report section
-//   report.style.display = 'block';
-
-//   // Call analysis function
-//   analyzeRealSkin(imageData);
-// });
-
-// // ✅ Send image to Face++ API
-// async function sendToFaceAPI(base64Image) {
-//   const formData = new FormData();
-//   formData.append('api_key', FACEPP_API_KEY);
-//   formData.append('api_secret', FACEPP_API_SECRET);
-//   formData.append('image_base64', base64Image.split(',')[1]); // Remove 'data:image/png;base64,'
-//   formData.append('return_attributes', 'skinstatus');
-
-//   const response = await fetch('https://api-us.faceplusplus.com/facepp/v3/detect', {
-//     method: 'POST',
-//     body: formData
-//   });
-
-//   const data = await response.json();
-//   return data;
-// }
-
-// // ✅ Analyze and display result
-// async function analyzeRealSkin(imageBase64) {
-//   results.innerHTML = '⏳ Analyzing your skin...';
-
-//   try {
-//     const data = await sendToFaceAPI(imageBase64);
-//     console.log('Face++ API response:', data);
-
-//     const skin = data.faces[0]?.attributes?.skinstatus;
-
-//     if (!skin) {
-//       results.innerHTML = '⚠️ No face or skin data detected.';
-//       return;
-//     }
-
-//     // ✅ Show skin results
-//     results.innerHTML = `
-//       <p>🧴 <strong>Acne:</strong> ${(skin.acne * 100).toFixed(1)}%</p>
-//       <p>💧 <strong>Health:</strong> ${(skin.health * 100).toFixed(1)}%</p>
-//       <p>🕳️ <strong>Stain:</strong> ${(skin.stain * 100).toFixed(1)}%</p>
-//       <p>🔴 <strong>Dark Circles:</strong> ${(skin.dark_circle * 100).toFixed(1)}%</p>
-//     `;
-
-//   } catch (err) {
-//     console.error('Analysis error:', err);
-//     results.innerHTML = '❌ Analysis failed: ' + err.message;
-//   }
-// }
-
-function buyNow(productId) {
-  // Redirect with product ID (you can expand later with localStorage or query params)
-  window.location.href = `product-details.html?id=${productId}`;
-}
-
-// const aiSkinAnalysisBtn = document.getElementById('aiSkinAnalysisBtn');
-// const loadingSpinner = document.getElementById('loadingSpinner');
-// const skinAnalysisResult = document.getElementById('skinAnalysisResult');
-// const analysisReport = document.getElementById('analysisReport');
-
-// // Set up RapidAPI key and endpoint (You'll need to replace with actual API details)
-// const rapidApiKey = "aff4c69d03msh988e59763155012p1b406djsn74b9cdb665ca";
-// const apiUrl = "https://skin-analyze.p.rapidapi.com/facebody/analysis/skinanalyze ";
-
-// // Function to start the analysis process
-// aiSkinAnalysisBtn.addEventListener('click', () => {
-//     // Start showing the loading spinner
-//     loadingSpinner.style.display = 'block';
-//     skinAnalysisResult.style.display = 'none';
-
-//     // Simulate image capture from a webcam or a file input
-//     captureImage().then(imageData => {
-//         // Send the image data to the API
-//         analyzeSkin(imageData);
-//     }).catch(err => {
-//         loadingSpinner.style.display = 'none';
-//         alert("Error capturing the image: " + err);
-//     });
-// });
-
-// // Simulated image capture function (replace with actual camera functionality)
-// function captureImage() {
-//     return new Promise((resolve, reject) => {
-//         // Here you can use a webcam API or file input for capturing images
-//         // For simplicity, this example uses a placeholder image data.
-//         const imageData = "data:image/jpeg;base64,...";  // Base64 encoded image data
-//         resolve(imageData);
-//     });
-// }
-
-// // Function to analyze the skin using the RapidAPI endpoint
-// function analyzeSkin(imageData) {
-//     // Hide the loading spinner
-//     loadingSpinner.style.display = 'none';
-
-//     // Prepare the request headers and data
-//     const requestHeaders = {
-//         "Content-Type": "application/json",
-//         "X-RapidAPI-Key": rapidApiKey,
-//         "X-RapidAPI-Host": "aff4c69d03msh988e59763155012p1b406djsn74b9cdb665ca"
-//     };
-
-//     const requestData = {
-//         image: imageData // This is the image data (Base64 encoded or file format as required by the API)
-//     };
-
-//     // Use fetch to make the API call
-//     fetch(apiUrl, {
-//         method: "POST",
-//         headers: requestHeaders,
-//         body: JSON.stringify(requestData)
-//     })
-//     .then(response => response.json())
-//     .then(data => {
-//         // Display the result from the API
-//         skinAnalysisResult.style.display = 'block';
-//         analysisReport.innerHTML = `
-//             <p><strong>Skin Type:</strong> ${data.skin_type}</p>
-//             <p><strong>Recommendations:</strong> ${data.recommendations.join(', ')}</p>
-//         `;
-//     })
-//     .catch(error => {
-//         alert("Error analyzing the skin: " + error);
-//     });
-// }
-
-const aiSkinAnalysisBtn = document.getElementById('aiSkinAnalysisBtn');
-const captureBtn = document.getElementById('captureBtn');
-
-aiSkinAnalysisBtn.addEventListener('click', () => {
-    startCamera();  // Start the camera
-});
-
-captureBtn.addEventListener('click', () => {
-    captureImage();  // Capture the image when clicked
-});
-
-function startCamera() {
-    navigator.mediaDevices.getUserMedia({ video: true })
-        .then(stream => {
-            const video = document.getElementById('video');
-            video.style.display = 'block';
-            video.srcObject = stream;
-        })
-        .catch(err => {
-            alert("Camera access denied. Please allow webcam.");
-            console.error(err);
-        });
-}
-
-function captureImage() {
-    const video = document.getElementById('video');
-    const canvas = document.createElement('canvas');
-    const ctx = canvas.getContext('2d');
-    canvas.width = video.videoWidth;
-    canvas.height = video.videoHeight;
-    ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-
-    const imageData = canvas.toDataURL('image/png');
-    document.getElementById('selfie').src = imageData;
-    document.getElementById('selfie').style.display = 'block';
-
-    // Stop the video stream
-    video.srcObject.getTracks().forEach(track => track.stop());
-
-    analyzeSkin(imageData);
-}
-
-function analyzeSkin(imageData) {
-    const requestHeaders = {
-        "Content-Type": "application/x-www-form-urlencoded",
-        "X-RapidAPI-Key": "aff4c69d03msh988e59763155012p1b406djsn74b9cdb665ca",
-        "X-RapidAPI-Host": "skin-analyze.p.rapidapi.com"
-    };
-
-    const requestData = {
-        image: imageData
-    };
-
-    fetch("https://skin-analyze.p.rapidapi.com/facebody/analysis/skinanalyze ", {
-        method: "POST",
-        headers: requestHeaders,
-        body: JSON.stringify(requestData)
-    })
-    .then(response => response.json())
-    .then(data => {
-        displaySkinResults(data);
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        alert("Error analyzing the skin: " + error);
+  document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+    button.addEventListener('click', () => {
+      const name = button.getAttribute('data-name');
+      const price = parseFloat(button.getAttribute('data-price'));
+      addToCart(name, price);
     });
+  });
+
+
+
+auth.onAuthStateChanged(user => {
+  if (user) {
+    currentUser = user;
+    loadCart(); // Load existing cart
+  } else {
+    currentUser = null;
+    cart = [];
+  }
+});
+
+function addToCart(name, price) {
+  if (!currentUser) {
+    alert("Please log in to add items to your cart.");
+    return;
+  }
+
+  const existingItem = cart.find(item => item.name === name);
+
+  if (existingItem) {
+    existingItem.quantity += 1;
+  } else {
+    cart.push({ name, price, quantity: 1 });
+  }
+
+  saveCart();
+}
+  
+function saveCart() {
+  db.collection("carts").doc(currentUser.uid).set({
+    items: cart
+  }).then(() => {
+    console.log("Cart saved!");
+  }).catch(error => {
+    console.error("Error saving cart:", error);
+  });
 }
 
-function displaySkinResults(data) {
-  const skinAnalysisResult = document.getElementById('skinAnalysisResult');
-  const analysisReport = document.getElementById('analysisReport');
+function loadCart() {
+  db.collection("carts").doc(currentUser.uid).get().then(doc => {
+    if (doc.exists) {
+      cart = doc.data().items || [];
+    } else {
+      cart = [];
+    }
+  });
 
-  skinAnalysisResult.style.display = 'block';
 
-  const skinType = data.skin_type || 'Unknown';
-  const recommendations = Array.isArray(data.recommendations)
-      ? data.recommendations.join(', ')
-      : 'No recommendations available.';
-
-  analysisReport.innerHTML = `
-      <p><strong>Skin Type:</strong> ${skinType}</p>
-      <p><strong>Recommendations:</strong> ${recommendations}</p>
-  `;
 }
-// function displaySkinResults(data) {
-//     const skinAnalysisResult = document.getElementById('skinAnalysisResult');
-//     const analysisReport = document.getElementById('analysisReport');
 
-//     skinAnalysisResult.style.display = 'block';
-//     analysisReport.innerHTML = `
-//         <p><strong>Skin Type:</strong> ${data.skin_type}</p>
-//         <p><strong>Recommendations:</strong> ${data.recommendations.join(', ')}</p>
-//     `;
-// }
+function printCart() {
+  console.log("Current cart:", cart);
+}
+
+function loadCart() {
+  if (!currentUser) return; // No user, no cart
+
+  db.collection("carts").doc(currentUser.uid).get().then(doc => {
+    if (doc.exists) {
+      cart = doc.data().items || [];
+    } else {
+      cart = [];
+    }
+    renderCart();  // Show cart items on UI after loading
+  }).catch(error => {
+    console.error("Error loading cart:", error);
+  });
+}
+
+function renderCart() {
+  const container = document.getElementById("cart-container");
+  container.innerHTML = ""; // Clear previous content
+
+  if (cart.length === 0) {
+    container.innerHTML = "<p>Your cart is empty.</p>";
+    return;
+  }
+
+  cart.forEach((item, index) => {
+    const itemDiv = document.createElement("div");
+    itemDiv.classList.add("cart-item");
+    itemDiv.innerHTML = `
+      <span>${item.name} (x${item.quantity})</span>
+      <span>₹${item.price * item.quantity}</span>
+      <button onclick="increaseQuantity(${index})">+1</button>
+      <button onclick="decreaseQuantity(${index})">-1</button>
+      <button onclick="removeItem(${index})">Remove</button>
+    `;
+    container.appendChild(itemDiv);
+  });
+}
+
+function increaseQuantity(index) {
+  if (!currentUser) {
+    alert("Please log in to update your cart.");
+    return;
+  }
+
+  cart[index].quantity += 1;
+
+  saveCart();    // Save updated cart to Firestore
+  renderCart();
+  showCartNotification()  // Refresh UI to show new quantity
+}
+
+
+function saveCart() {
+  db.collection("carts").doc(currentUser.uid).set({
+    items: cart
+  }).then(() => {
+    console.log("Cart saved!");
+  }).catch(error => {
+    console.error("Error saving cart:", error);
+  });
+}
+auth.onAuthStateChanged(user => {
+  if (user) {
+    currentUser = user;
+    loadCart();  // This loads and shows cart automatically on login
+  } else {
+    currentUser = null;
+    cart = [];
+    renderCart(); // Clear cart UI when logged out
+  }
+});
+
+function addToCart(name, price) {
+  if (!currentUser) {
+    alert("Please log in to add items to your cart.");
+    return;
+  }
+
+  const existingItem = cart.find(item => item.name === name);
+
+  if (existingItem) {
+    existingItem.quantity += 1;
+  } else {
+    cart.push({ name, price, quantity: 1 });
+  }
+
+  saveCart();
+
+  // ✅ Show notification
+  showCartNotification();
+  renderCart();  
+}
+
+function showCartNotification() {
+  const notification = document.getElementById("cart-notification");
+  notification.style.display = "block";
+
+  // Hide after 2.5 seconds
+  setTimeout(() => {
+    notification.style.display = "none";
+  }, 2500);
+
+}
+
+function decreaseQuantity(index) {
+  if (!currentUser) {
+    alert("Please log in to update your cart.");
+    return;
+  }
+
+  if (cart[index].quantity > 1) {
+    cart[index].quantity -= 1;
+  } else {
+    removeItem(index);  // Calls confirmation dialog here too
+    return;  
+  }
+
+  saveCart();
+  renderCart();
+}
+
+function removeItem(index) {
+  if (!currentUser) {
+    alert("Please log in to update your cart.");
+    return;
+  }
+
+  const itemName = cart[index].name;
+  const confirmDelete = confirm(`Are you sure you want to remove "${itemName}" from your cart?`);
+
+  if (confirmDelete) {
+    cart.splice(index, 1);
+    saveCart();
+    renderCart();
+  }
+}
+
+
+
+
+
+
+// function buyNow(productId) {
+//   // Redirect with product ID (you can expand later with localStorage or query params)
+//   window.location.href = `product-details.html?id=${productId}`;// }
+
+// function buyNow(imageSrc){
+//   // const imageSrc = document.getElementById("productImage").src;
+
+  
+
+//   localStorage.setItem("selectedProductImage", imageSrc);
+//   localStorage.setItem("selectedProductdescription", imageSrc);
+
+//   window.location.href = "product-details.html";  }
+
+function viewProduct(productId) {
+  // Save selected product ID to localStorage
+  localStorage.setItem("selectedProduct", productId);
+  // Redirect to product detail page
+  window.location.href = "product-details.html";
+}
+
+function openCartModal() {
+  document.getElementById("cartModal").style.display = "block";
+  renderCart(); 
+ ;// Load cart items
+}
+window.onclick = function(event) {
+  const modal = document.getElementById("cartModal");
+  if (event.target === modal) {
+    modal.style.display = "none";
+  }
+}

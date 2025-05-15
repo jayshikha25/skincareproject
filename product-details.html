@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="stylebuynow.css">
   
 </head>
-<body>
+<body onload="loadProduct()">
     <header>
         <nav> <div class="navbar">
           <div class="logo">JASSI</div>
@@ -42,9 +42,9 @@
             
                 <div class="column">
                   <h4>Skin Type</h4><br>
-                  <a href="#">Dry Skin</a>
-                  <a href="#">Oily Skin</a>
-                  <a href="#">Normal Skin</a>
+                  <a href="Dryskin.html">Dry Skin</a>
+                  <a href="oilyskin.html">Oily Skin</a>
+                  <a href="normalskin.html">Normal Skin</a>
                 </div>
             
                
@@ -184,12 +184,25 @@
       </div>
     </div>
     </div>
-    <div class="productcart">
+<div class="photodetailscontainer">
+    <div id="product-container">
+      <img id="product-image" src="" alt="Product Image" />
+      
+      <p id="product-description"></p>
+      
+    </div>
+  </div>
+  
+    <!-- <div class="productcart">
 
-    <img src="canva.jpg" class="product-img" alt="Product Image">
+    <img id="displayProductImage" src=""   alt="Product Image" >
 
-  <div class="details">
-    <h1>Cetaphil Gentle Skin Cleanser 1000 ML</h1>
+    <br>
+ 
+
+
+ <div class="details">
+    <h1 id="product-name">Cetaphil Gentle Skin Cleanser 1000 ML</h1>
     <ul>
       <li>Science-backed blend of niacinamide (vitamin B3), panthenol (B5), and glycerin</li><br>
       <li>Clinically proven to hydrate and protect against dryness</li>
@@ -211,7 +224,8 @@
       <strong>Disclaimer:</strong> This item is non-returnable due to hygiene and personal care nature. In case of damaged or incorrect item, full refund or replacement will be provided.
     </div>
   </div>
-  </div>
+  </div>  -->
+
 
   
   <footer>
@@ -247,7 +261,7 @@
         <ul>
           <li><a href="terms.html">Terms & Conditions</a></li>
           
-          <li><a href="#">Cookie Policy</a></li>
+          <li><a href="cookie.html">Cookie Policy</a></li>
         </ul>
       </div>
     </div>
@@ -266,6 +280,7 @@
   
   
     <script src="index.js"></script>
+    <script src="indexdetails.js"></script>
  
   
   
